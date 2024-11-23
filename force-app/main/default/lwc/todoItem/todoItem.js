@@ -3,6 +3,7 @@ import { LightningElement, api } from 'lwc';
 export default class TodoItem extends LightningElement {
     _uppercaseItemName;
     itemname="betty";
+    @api
     handleText(event){this.itemname=event.target.value}
     @api 
     get itemname(){
@@ -11,4 +12,6 @@ export default class TodoItem extends LightningElement {
     set itemname(value){
         this._uppercaseItemName = value.toUpperCase();
     }
+    @api 
+    parenttext="placeholder";
 }
