@@ -1,0 +1,9 @@
+<template>
+    <lightning-card><lightning-input
+        label="Set Starting Text"
+        value={textValue}
+        onchange={handleText}></lightning-input>
+        <P><lightning-formatted-text value={textValue}></lightning-formatted-text></P>
+        <c-todo-item></c-todo-item>
+    </lightning-card>
+</template>

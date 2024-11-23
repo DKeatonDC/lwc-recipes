@@ -2,13 +2,13 @@ import { LightningElement, api } from 'lwc';
 
 export default class TodoItem extends LightningElement {
     _uppercaseItemName;
-    itemName="betty";
-    handleText(event){this.itemName=event.target.value}
+    itemname="betty";
+    handleText(event){this.itemname=event.target.value}
     @api 
-    get itemName(){
+    get itemname(){
         return this._uppercaseItemName;
     }
-    set itemName(value){
+    set itemname(value){
         this._uppercaseItemName = value.toUpperCase();
     }
 }
