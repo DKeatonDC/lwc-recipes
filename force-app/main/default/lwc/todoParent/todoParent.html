@@ -1,12 +1,12 @@
 <template>
-    <lightning-card><lightning-input
-        label="Set Text to UPPERCASE(Parent)"
+    <lightning-card><H1>Parent</H1><lightning-input
+        label="Set Text on Child from Parent"
         value={textValue}
         onchange={handleText}></lightning-input>
         <lightning-input
-        label="Set Text from Parent"
+        label="Set Text to UPPERCASE(Parent)"
         onchange={handleChildText}></lightning-input>
-        <P><lightning-formatted-text value={textValue}></lightning-formatted-text></P>
+        <P>This text will be passed to the child: <lightning-formatted-text value={textValue}></lightning-formatted-text></P>
         <c-todo-item parenttext={textValue}></c-todo-item>
     </lightning-card>
 </template>

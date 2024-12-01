@@ -1,9 +1,9 @@
 <template>
-    <lightning-card><lightning-input
-    label="Set Text Below to Uppercase"
+    <lightning-card><H1>Child</H1><lightning-input
+    label="Set Text to UPPERCASE(Child)"
     onchange={handleText}></lightning-input>
-    <P>Set Text to UPPERCASE(Child): <lightning-formatted-text value={itemname}></lightning-formatted-text></P>
-<p>This Text Can Come from the Child/Parent:<lightning-formatted-text value={parenttext}></lightning-formatted-text></p>
+    <P>This Text Can Come from the Child/Parent: <lightning-formatted-text value={itemname}></lightning-formatted-text></P>
+<p>This Text Comes from the Parent:<lightning-formatted-text value={parenttext}></lightning-formatted-text></p>
 <p>Text that Comes from Another Component:<lightning-formatted-text value={exteriortext}></lightning-formatted-text></p>
 </lightning-card>
 </template>

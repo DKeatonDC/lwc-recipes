@@ -14,11 +14,11 @@ export default class TodoItem extends LightningElement {
         );
     }
     _uppercaseItemName;
-    exteriortext="set by child";
+    exteriortext="waiting for message";
     itemname="set by child";
     //this will not appear in parent component because 
     //the parent reassigns the value
-    handleMessage(message){this.exteriortext = message.exteriortext;} 
+    handleMessage(message){this.exteriortext = message.textVar;} 
        // Standard lifecycle hooks used to sub/unsub to message channel
     connectedCallback() {
         this.subscribeToMessageChannel();
@@ -43,8 +43,4 @@ export default class TodoItem extends LightningElement {
     @api 
     parenttext = null;
     if(parenttext = null){this.parenttext = "set by a child";}
-    //this will not appear in parent component because 
-    //the parent reassigns the value unless set by child.  
-    //As seen above, I attemped using if statements, but this,
-    //too would need to be set at the parent level (I believe).
 }
