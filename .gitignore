@@ -43,3 +43,7 @@ $RECYCLE.BIN/
 # Local environment variables/config
 .env
 .config
+force-app/main/default/lwc/childComponent/childComponent.js-meta.xml
+force-app/main/default/lwc/parentComponent/parentComponent.html
+force-app/main/default/lwc/parentComponent/parentComponent.js-meta.xml
+force-app/main/default/lwc/parentComponent/parentComponent.js
