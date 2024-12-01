@@ -1,10 +1,28 @@
-import { LightningElement, api } from 'lwc';
-
+import { LightningElement, api, wire } from 'lwc';
+import { subscribe, MessageContext } from 'lightning/messageService';
+import TEXT_MESSAGE_CHANNEL from '@salesforce/messageChannel/Text_Message__c';
 export default class TodoItem extends LightningElement {
+    @wire(MessageContext)
+    messageContext;
+    
+    // Encapsulate logic for LMS subscribe.
+    subscribeToMessageChannel() {
+        this.subscription = subscribe(
+            this.messageContext,
+            TEXT_MESSAGE_CHANNEL,
+            (message) => this.handleMessage(message)
+        );
+    }
     _uppercaseItemName;
+    exteriortext="set by child";
     itemname="set by child";
     //this will not appear in parent component because 
     //the parent reassigns the value
+    handleMessage(message){this.exteriortext = message.exteriortext;} 
+       // Standard lifecycle hooks used to sub/unsub to message channel
+    connectedCallback() {
+        this.subscribeToMessageChannel();
+    }
     @api
     handleText(event){this.itemname=event.target.value}
     //this function must be called by the parent. Changing
@@ -26,5 +44,7 @@ export default class TodoItem extends LightningElement {
     parenttext = null;
     if(parenttext = null){this.parenttext = "set by a child";}
     //this will not appear in parent component because 
-    //the parent reassigns the value unless set by child
+    //the parent reassigns the value unless set by child.  
+    //As seen above, I attemped using if statements, but this,
+    //too would need to be set at the parent level (I believe).
 }
